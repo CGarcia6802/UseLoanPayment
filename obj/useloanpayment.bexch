@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__useloanpayment.o
+[PROJECT FILES]
+C:\Users\deput\Documents\(Fall 2024) COSC 3319\Lab 1\loanpaymentcalculation.gpr
+20240902223832 09d339a503aef8904a737ae00201ed3c
+[BOUND OBJECT FILES]
+C:\Users\deput\Documents\(Fall 2024) COSC 3319\Lab 1\obj\useloanpayment.o
+[GENERATED SOURCE FILES]
+b__useloanpayment.ads
+b__useloanpayment.adb
+b__useloanpayment.ali
+[RESULTING OPTIONS]
+-LC:\Users\deput\Documents\(Fall 2024) COSC 3319\Lab 1\obj\
+-LC:\Users\deput\Documents\(Fall 2024) COSC 3319\Lab 1\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
