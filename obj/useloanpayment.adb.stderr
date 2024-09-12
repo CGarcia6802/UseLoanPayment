@@ -1,1 +1,2 @@
-useloanpayment.adb:20:09: error: actual for "To" must be a variable
+useloanpayment.adb:29:24: warning: "interestTotal" may be referenced before it has a value [enabled by default]
+useloanpayment.adb:32:26: warning: "newBalance" may be referenced before it has a value [enabled by default]

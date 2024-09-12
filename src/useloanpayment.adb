@@ -17,11 +17,11 @@ begin
 
    actualInterest := inter / 100.00;
    interest := actualInterest / 12.00; --calculating the amount of payment
-   put ("month", 10); put("Balance   "); put("Payment   "); put("Interest  "); put ("Loan Pay  "); put ("New Balance");
+   put ("Month / "); put("Balance / "); put("Payment T "); put("Interest / "); put ("Loan Pay / "); put ("New Balance");
    New_Line;New_Line;
 
    for I in 1..b loop
-      put (I, 10); put (Balance, 10);
+      put (I, 3); put (" | "); put (Balance, 6); put (" | ");
 
       tl := interest * Float(balance); --calculating the Towards Loan payment
       towardsLoan := Integer(tl);
@@ -43,7 +43,7 @@ begin
       end if;
 
 
-      put (payment, 10); put (interestPaid, 10); put(towardsLoan, 10); put(newBalance, 10);
+      put (payment, 6); put (" | "); put (interestPaid, 4); put (" | "); put(towardsLoan, 4); put (" | "); put(newBalance, 6);
       New_Line;
 
       if (newBalance = 0) then

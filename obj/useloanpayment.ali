@@ -10,7 +10,7 @@ RV NO_FLOATING_POINT
 RV NO_IO
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U useloanpayment%b	useloanpayment.adb	fce1fae4 NE OO SU
+U useloanpayment%b	useloanpayment.adb	5f3630c3 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -49,7 +49,7 @@ D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
-D useloanpayment.adb	20240912173444 45d4e18d useloanpayment%b
+D useloanpayment.adb	20240912232654 e6032baa useloanpayment%b
 G a e
 G c Z b b [useloanpayment standard 5 11 none]
 X 1 ada.ads
@@ -60,27 +60,28 @@ X 4 a-inteio.ads
 18K13*Integer_Text_IO[13|46] 33|2w10 2r35
 X 11 a-textio.ads
 58K13*Text_IO 725e16 33|1w10 1r27
-262U14*New_Line 33|17s4 22s4 22s13 48s7 51s10
-463U14*Put 33|13s4 14s4 15s4 16s4 21s4 21s23 21s42 21s61 21s80 21s100 51s20
+262U14*New_Line 33|13s77 14s61 15s75 16s58 21s4 21s13 47s7 50s10
+463U14*Put 33|13s4 14s4 15s4 16s4 20s4 20s22 20s41 20s60 20s80 20s101 24s19
+. 24s50 46s25 46s61 46s95 50s20
 X 12 a-tiflio.ads
 60U14*Get 33|15s62[3|20]
 X 13 a-tiinio.ads
 59U14*Get 33|13s68[4|18] 14s46[4|18] 16s43[4|18]
-80U14*Put 33|25s7[4|18] 25s19[4|18] 47s7[4|18] 47s25[4|18] 47s48[4|18] 47s69[4|18]
-. 51s45[4|18]
+80U14*Put 33|24s7[4|18] 24s32[4|18] 46s7[4|18] 46s38[4|18] 46s74[4|18] 46s108[4|18]
+. 50s45[4|18]
 X 33 useloanpayment.adb
-5U11*Useloanpayment 5b11 59l5 59t19
-7i4 b{integer} 13m73 24r16 33r15
-7i7 balance{integer} 14m51 25r24 27r30 36r24 37m10
-7i16 payment{integer} 16m48 29r23 33r39 34m10 34r48 47r12
-7i25 towardsLoan{integer} 28m7 29r33 34m33 47r52
-7i38 interestPaid{integer} 29m7 30r40 34r58 36r34 47r30
-7i52 interestTotal{integer} 30m7 30r24 51r49
-7i67 newBalance{integer} 33r26 34r21 34m72 36m10 37r21 42r11 43m10 47r73
-. 50r11
-8f4 tl{float} 27m7 28r30
-8f8 inter{float} 15m67 19r22
-8f15 actualInterest{float} 19m4 20r16
-8f31 interest{float} 20m4 27r13
-24i8 I{integer} 25r12 33r11
+5U11*Useloanpayment 5b11 58l5 58t19
+7i4 b{integer} 13m73 23r16 32r15
+7i7 balance{integer} 14m51 24r37 26r30 35r24 36m10
+7i16 payment{integer} 16m48 28r23 32r39 33m10 33r48 46r12
+7i25 towardsLoan{integer} 27m7 28r33 33m33 46r78
+7i38 interestPaid{integer} 28m7 29r40 33r58 35r34 46r43
+7i52 interestTotal{integer} 29m7 29r24 50r49
+7i67 newBalance{integer} 32r26 33r21 33m72 35m10 36r21 41r11 42m10 46r112
+. 49r11
+8f4 tl{float} 26m7 27r30
+8f8 inter{float} 15m67 18r22
+8f15 actualInterest{float} 18m4 19r16
+8f31 interest{float} 19m4 26r13
+23i8 I{integer} 24r12 32r11
 
