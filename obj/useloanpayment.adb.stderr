@@ -1,2 +1,2 @@
-useloanpayment.adb:29:24: warning: "interestTotal" may be referenced before it has a value [enabled by default]
-useloanpayment.adb:32:26: warning: "newBalance" may be referenced before it has a value [enabled by default]
+useloanpayment.adb:37:24: warning: "interestTotal" may be referenced before it has a value [enabled by default]
+useloanpayment.adb:40:26: warning: "newBalance" may be referenced before it has a value [enabled by default]

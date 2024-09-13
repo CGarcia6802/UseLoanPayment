@@ -10,12 +10,13 @@ RV NO_FLOATING_POINT
 RV NO_IO
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U useloanpayment%b	useloanpayment.adb	456da3a9 NE OO SU
+U useloanpayment%b	useloanpayment.adb	810bf339 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.exn_flt%s	s-exnflt.ads		s-exnflt.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
@@ -36,6 +37,8 @@ D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exnflt.ads		20210520051132 84371ff2 system.exn_flt%s
+D s-exponr.ads		20210520051132 2127300b system.exponr%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
@@ -49,39 +52,44 @@ D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
-D useloanpayment.adb	20240913013056 fc58b8c0 useloanpayment%b
+D useloanpayment.adb	20240913144248 383ee850 useloanpayment%b
 G a e
 G c Z b b [useloanpayment standard 5 11 none]
 X 1 ada.ads
-16K9*Ada 20e8 33|1r6 1r23 2r6 2r31 3r6 3r29
+16K9*Ada 20e8 35|1r6 1r23 2r6 2r31 3r6 3r29
 X 3 a-flteio.ads
-20K13*Float_Text_IO[12|46] 33|3w10 3r33
+20K13*Float_Text_IO[12|46] 35|3w10 3r33
 X 4 a-inteio.ads
-18K13*Integer_Text_IO[13|46] 33|2w10 2r35
+18K13*Integer_Text_IO[13|46] 35|2w10 2r35
 X 11 a-textio.ads
-58K13*Text_IO 725e16 33|1w10 1r27
-262U14*New_Line 33|13s77 14s61 15s75 16s58 21s4 47s7 50s10
-463U14*Put 33|13s4 14s4 15s4 16s4 20s4 20s21 20s38 20s55 20s73 20s92 24s7
-. 24s30 24s59 46s25 46s59 46s91 46s123 50s20
+58K13*Text_IO 725e16 35|1w10 1r27
+262U14*New_Line 35|13s77 14s61 15s75 21s4 55s7 58s10
+463U14*Put 35|13s4 14s4 15s4 20s4 20s24 20s43 20s62 20s82 20s103 31s7 31s31
+. 31s62 54s25 54s61 54s95 54s129 58s20
 X 12 a-tiflio.ads
-60U14*Get 33|15s62[3|20]
+60U14*Get 35|15s62[3|20]
 X 13 a-tiinio.ads
-59U14*Get 33|13s68[4|18] 14s46[4|18] 16s43[4|18]
-80U14*Put 33|24s18[4|18] 24s41[4|18] 46s7[4|18] 46s36[4|18] 46s70[4|18] 46s102[4|18]
-. 50s45[4|18]
-X 33 useloanpayment.adb
-5U11*Useloanpayment 5b11 58l5 58t19
-7i4 b{integer} 13m73 23r16 32r15
-7i7 balance{integer} 14m51 24r46 26r30 35r24 36m10
-7i16 payment{integer} 16m48 28r23 32r39 33m10 33r48 46r12
-7i25 towardsLoan{integer} 27m7 28r33 33m33 46r74
-7i38 interestPaid{integer} 28m7 29r40 33r58 35r34 46r41
-7i52 interestTotal{integer} 29m7 29r24 50r49
-7i67 newBalance{integer} 32r26 33r21 33m72 35m10 36r21 41r11 42m10 46r106
-. 49r11
-8f4 tl{float} 26m7 27r30
+59U14*Get 35|13s68[4|18] 14s46[4|18]
+80U14*Put 35|31s19[4|18] 31s44[4|18] 54s7[4|18] 54s38[4|18] 54s74[4|18] 54s108[4|18]
+. 58s45[4|18]
+X 35 useloanpayment.adb
+5U11*Useloanpayment 5b11 66l5 66t19
+7i4 b{integer} 13m73 23r29 24r29 30r16 40r15
+7i7 balance{integer} 14m51 27r17 31r49 33r30 43r24 44m10
+7i16 payment{integer} 28m4 36r23 40r39 41m10 41r48 50m27 54r12
+7i25 towardsLoan{integer} 34m7 36r33 41m33 54r78
+7i38 interestPaid{integer} 36m7 37r40 41r58 43r34 54r43
+7i52 interestTotal{integer} 37m7 37r24 58r49
+7i67 newBalance{integer} 40r26 41r21 41m72 43m10 44r21 49r11 50m10 54r112
+. 57r11
+8f4 tl{float} 33m7 34r30
 8f8 inter{float} 15m67 18r22
-8f15 actualInterest{float} 18m4 19r16
-8f31 interest{float} 19m4 26r13
-23i8 I{integer} 24r23 32r11
+8f15 p{float} 23m4 26r9
+8f18 a{float} 25m4 26r13
+8f21 ay{float} 24m4 25r21
+8f25 y{float} 26m4 27r28
+8f28 pay{float} 27m4 28r23
+8f33 actualInterest{float} 18m4 19r16
+8f49 interest{float} 19m4 23r18 24r18 25r10 33r13
+30i8 I{integer} 31r24 40r11
 
