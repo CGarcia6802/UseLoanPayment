@@ -1,25 +1,24 @@
 V "GNAT Lib v2021"
-M P W=b
 A -gnatA
 A -mtune=generic
 A -march=x86-64
 P ZX
 
 RN
-RV NO_DIRECT_BOOLEAN_OPERATORS
-RV NO_EXCEPTION_HANDLERS
-RV NO_EXCEPTIONS
 RV NO_FLOATING_POINT
 RV NO_IO
-RV NO_IMPLICIT_CONDITIONALS
-RV NO_STANDARD_STORAGE_POOLS
-RV NO_DYNAMIC_SIZED_OBJECTS
-RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_OBSOLESCENT_FEATURES
 
-U useloanpayment%b	useloanpayment.adb	b6e1e724 NE OO SU
+U calculateloanpayments%b  calculateloanpayments.adb  9af21339 NE OO PK
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z system.exn_flt%s	s-exnflt.ads		s-exnflt.ali
+
+U calculateloanpayments%s  calculateloanpayments.ads  7fe0bcae EE NE OO PK IU
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 Z ada.text_io.float_aux%s
@@ -27,7 +26,6 @@ Z ada.text_io.float_io%s
 Z ada.text_io.generic_aux%s  a-tigeau.adb	a-tigeau.ali
 Z ada.text_io.integer_aux%s
 Z ada.text_io.integer_io%s
-W calculateloanpayments%s  calculateloanpayments.adb  calculateloanpayments.ali
 W system%s		system.ads		system.ali
 Z system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
 Z system.img_biu%s	s-imgbiu.ads		s-imgbiu.ali
@@ -70,11 +68,14 @@ D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-tiinio.adb		20210520051130 b79731f4 ada.text_io.integer_io%b
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D calculateloanpayments.ads  20240915235802 41b80e54 calculateloanpayments%s
+D calculateloanpayments.adb  20240916003504 db4a1d6d calculateloanpayments%b
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-exnflt.ads		20210520051132 84371ff2 system.exn_flt%s
+D s-exponr.ads		20210520051132 2127300b system.exponr%s
 D s-fatflt.ads		20210520051132 11beb392 system.fat_flt%s
 D s-fatgen.ads		20210520051132 d28c6cfe system.fat_gen%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
@@ -125,32 +126,97 @@ D s-valuei.ads		20210520051134 978dd0a6 system.value_i%s
 D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
-D useloanpayment.adb	20240915235156 59ad3c1d useloanpayment%b
 G a e
-G c Z b b [useloanpayment standard 5 11 none]
-G r c none [useloanpayment standard 5 11 none] [loanpayment calculateloanpayments 9 14 none]
+G c Z s s [get calculateloanpayments__iio 51 14 6_4]
+G c Z s s [get calculateloanpayments__iio 59 14 6_4]
+G c Z s s [put calculateloanpayments__iio 68 14 6_4]
+G c Z s s [put calculateloanpayments__iio 80 14 6_4]
+G c Z s s [get calculateloanpayments__iio 90 14 6_4]
+G c Z s s [put calculateloanpayments__iio 97 14 6_4]
+G c Z s s [get calculateloanpayments__iio__aux_int 52 14 48_4_6_4]
+G c Z s s [gets calculateloanpayments__iio__aux_int 57 14 48_4_6_4]
+G c Z s s [put calculateloanpayments__iio__aux_int 62 14 48_4_6_4]
+G c Z s s [puts calculateloanpayments__iio__aux_int 68 14 48_4_6_4]
+G c Z s s [get calculateloanpayments__iio__aux_lli 52 14 56_4_6_4]
+G c Z s s [gets calculateloanpayments__iio__aux_lli 57 14 56_4_6_4]
+G c Z s s [put calculateloanpayments__iio__aux_lli 62 14 56_4_6_4]
+G c Z s s [puts calculateloanpayments__iio__aux_lli 68 14 56_4_6_4]
+G c Z s s [get calculateloanpayments__iio__aux_llli 52 14 64_4_6_4]
+G c Z s s [gets calculateloanpayments__iio__aux_llli 57 14 64_4_6_4]
+G c Z s s [put calculateloanpayments__iio__aux_llli 62 14 64_4_6_4]
+G c Z s s [puts calculateloanpayments__iio__aux_llli 68 14 64_4_6_4]
+G c Z s s [get calculateloanpayments__fio 52 14 7_4]
+G c Z s s [get calculateloanpayments__fio 60 14 7_4]
+G c Z s s [put calculateloanpayments__fio 69 14 7_4]
+G c Z s s [put calculateloanpayments__fio 82 14 7_4]
+G c Z s s [get calculateloanpayments__fio 93 14 7_4]
+G c Z s s [put calculateloanpayments__fio 100 14 7_4]
+G c Z s s [get calculateloanpayments__fio__aux_float 58 14 42_4_7_4]
+G c Z s s [put calculateloanpayments__fio__aux_float 63 14 42_4_7_4]
+G c Z s s [gets calculateloanpayments__fio__aux_float 70 14 42_4_7_4]
+G c Z s s [puts calculateloanpayments__fio__aux_float 75 14 42_4_7_4]
+G c Z s s [get calculateloanpayments__fio__aux_long_float 58 14 45_4_7_4]
+G c Z s s [put calculateloanpayments__fio__aux_long_float 63 14 45_4_7_4]
+G c Z s s [gets calculateloanpayments__fio__aux_long_float 70 14 45_4_7_4]
+G c Z s s [puts calculateloanpayments__fio__aux_long_float 75 14 45_4_7_4]
+G c Z s s [get calculateloanpayments__fio__aux_long_long_float 58 14 49_4_7_4]
+G c Z s s [put calculateloanpayments__fio__aux_long_long_float 63 14 49_4_7_4]
+G c Z s s [gets calculateloanpayments__fio__aux_long_long_float 70 14 49_4_7_4]
+G c Z s s [puts calculateloanpayments__fio__aux_long_long_float 75 14 49_4_7_4]
+G c Z s b [loanpayment calculateloanpayments 9 14 none]
 X 1 ada.ads
-16K9*Ada 20e8 76|1r6 1r23 7r26 8r23
+16K9*Ada 20e8 20|1r6 1r23 2r6 2r23 6r23 7r23
+X 5 a-string.ads
+16K13*Strings 35e16 20|2w10 2r27
 X 9 a-textio.ads
-58K13*Text_IO 725e16 76|1w10 1r27 7r30 8r27
-262U14*New_Line 76|15s80 16s61 17s75 21s4
-463U14*Put 76|15s4 16s4 17s4 21s14
+58K13*Text_IO 725e16 20|1w10 1r27 6r27 7r27
+65P9*File_Type 21|5r10
+67n32*Out_File{67E9} 21|10r36
+97U14*Create 21|10s7
+98p7 File{65P9} 21|10r14
+99e7 Mode{67E9} 21|10r28
+100a7 Name{string} 21|10r46
+127U14*Close 21|64s7
+127p22 File{65P9} 21|64r14
+262U14*New_Line 21|13s83 18s29 59s10
+384U14*Put 21|12s89 18s7 56s101
+457U14*Put 21|12s7 16s10 33s10 33s46 33s89 55s34 55s82 56s37 56s83
+463U14*Put 21|13s7 16s26 34s10 34s34 34s65 57s28 57s64 58s31 58s65
 X 12 a-tiflio.ads
-46k21*Float_IO 112e25 76|8r35
-60U14 Get 76|17s62[8]
+46k21*Float_IO 112e25 20|7r35
 X 17 a-tiinio.ads
-46k21*Integer_IO 108e27 76|7r38
-59U14 Get 76|15s67[7] 16s46[7]
-80U14 Put 76|21s39[7]
+46k21*Integer_IO 108e27 20|6r35
+68U14*Put 21|33s28[20|6] 33s65[20|6] 55s10[20|6] 55s53[20|6] 56s10[20|6]
+. 56s56[20|6]
+80U14*Put 21|34s22[20|6] 34s47[20|6] 57s10[20|6] 57s41[20|6] 58s10[20|6]
+. 58s44[20|6]
 X 20 calculateloanpayments.ads
-4K9*CalculateLoanPayments 11e26 76|2w6 2r33
-9U14*loanPayment 76|20s4
-X 76 useloanpayment.adb
-5U11*Useloanpayment 5b11 23l5 23t19
-7K12 Int_IO[17|46] 7r63
-8K12 FIO[12|46] 8r56
-10i4 years{integer} 15m72 20r25
-10i11 balance{integer} 16m51 20r16
-10i20 interestTotal{integer} 20m39 20r39 21r43
-11f4 inter{float} 17m67 20r32
+4K9*CalculateLoanPayments 11l5 11e26 21|1b14 68l5 68t26
+6K12*IIO[17|46] 6r60
+7K12*FIO[12|46] 7r56
+9U14*loanPayment 9>27 9>38 9>57 9=73 21|7b14 66l8 66t19
+9i27 principal{integer} 21|7b27 23r18
+9i38 years{integer} 21|7b38 22r17
+9f57 rate{float} 21|7b57 20r25
+9i73 interest{integer} 21|7b73 40m10 40r22
+X 21 calculateloanpayments.adb
+3i4 months{integer} 22m7 25r29 26r29 32r19 44r18
+3i12 balance{integer} 23m7 29r20 33r76 34r52 36r30 41r24 42m10
+3i21 newBalance{integer} 41m10 42r21 44r34 45r24 45m75 50r14 51m13 56r66
+. 58r48
+3i33 payment{integer} 30m7 39r26 44r47 45m13 45r51 51m30 55r21 57r15
+3i42 towardsLoan{integer} 37m10 39r36 45m36 56r20 58r14
+3i55 interestPaid{integer} 39m10 40r33 41r34 45r61 55r64 57r46
+4f4 actualInterest{float} 20m7 21r16
+4f20 p{float} 25m7 28r12
+4f23 a{float} 27m7 28r16
+4f26 ay{float} 26m7 27r21
+4f30 y{float} 28m7 29r31
+4f33 pay{float} 29m7 30r26
+4f38 tl{float} 36m10 37r33
+4f42 inter{float} 21m7 25r21 26r21 27r13 36r16
+5p4 file{9|65P9} 10m22 10r22 12r12 12r94 16r14 18r12 33r15 33r33 33r51 33r70
+. 33r94 55r15 55r39 55r58 55r87 56r14 56r42 56r60 56r88 56r106 64m22 64r22
+15i11 I{integer}
+32i11 I{integer} 33r39 34r27 44r14
 

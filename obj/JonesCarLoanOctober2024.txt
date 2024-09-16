@@ -1,6 +1,3 @@
-Enter How Many Years The Loan Will Take To Pay Off : 
-Enter Total Balance For Loan : $
-Enter The Interest Rate For The Loan (Float) : %
 | Month | Balance | Payment | Interest | Loan Pay | New Balance | 
 -----------------------------------------------------------------
 |     1 |   20000 |     387 |      287 |      100 |       19713 |
@@ -64,4 +61,3 @@ Enter The Interest Rate For The Loan (Float) : %
 |    59 |     746 |     387 |      383 |        4 |         363 |
 |    60 |     363 |       0 |      385 |        2 |           0 |
 
-Total Interest:       20022
