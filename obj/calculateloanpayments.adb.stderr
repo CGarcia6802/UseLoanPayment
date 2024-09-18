@@ -1,0 +1,1 @@
+calculateloanpayments.adb:3:42: warning: variable "yearlyPayments" is never read and never assigned [-gnatwv]

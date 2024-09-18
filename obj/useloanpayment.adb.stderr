@@ -1,1 +1,1 @@
-useloanpayment.adb:20:39: warning: "interestTotal" may be referenced before it has a value [enabled by default]
+useloanpayment.adb:21:54: warning: "interestTotal" may be referenced before it has a value [enabled by default]

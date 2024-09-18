@@ -1,40 +1,52 @@
 package body CalculateLoanPayments is
    
-   months, balance, newBalance, payment, towardsLoan, interestPaid: Integer;
-   actualInterest, p, a, ay, y, pay, tl, inter: float;
-   file: File_Type;
+   months, balance, newBalance, payment, yearlyPayments, towardsLoan, interestPaid: Integer;
+   newRate, actualInterest, part1, part2, part3, part4, part5, towardsLoanRaw: float;
+   fileOut, fileIn: File_Type;
 
-   procedure loanPayment (principal, years: in integer; rate: in float; interest: in out integer) is 
+   procedure loanPayment (years, principal, yearlyPayments: in integer; rate: in float; interest: in out integer) is 
    begin
-     
-      Create(File => file, Mode => Out_File, Name => "JonesCarLoanOctober2024.txt");
       
-      put (file, "| Month | Balance | Payment | Interest | Loan Pay | New Balance | "); put (file, ASCII.LF);
-      put ("| Month | Balance | Payment | Interest | Loan Pay | New Balance | "); New_Line;
+      Put_Line("Enter a Name for the Copy of File for Truth in Lending Report: ");
+      Skip_Line; New_Line;
+      
+      declare
+         
+         name1: String := Get_Line;
+         
+      begin
+         
+         Create (File => fileOut, Mode => Out_File, Name => name1 & ".txt"); --WRITE
+         
+      end;
+      
+      put (fileOut, "| Month | Balance | Payment | Interest | Loan Pay | New Balance | "); put (fileOut, ASCII.LF);
       
       for I in 1..65 loop
-         put(file, "-"); put("-");
+         put(fileOut, "-");
       end loop;
-      put (file, ASCII.LF); New_Line;
+      
+      put (fileOut, ASCII.LF);
       
       actualInterest := rate / 100.00;
-      inter := actualInterest / 12.00; --calculating the interest
+      newRate := actualInterest / Float(yearlyPayments); --calculating the interest
       months := years * 12; --calculating months/payments
-      balance := principal;
+      balance := principal; --due to the in constraint and needing to re-enter the new balance into balance for next month,
+                            --we pass off principal into balance
    
-      p := (((1.0 + inter)**months) - 1.0); --calculates monthly payment
-      ay := ((1.0 + inter)**months);
-      a := (inter * ay);
-      y := p / a;
-      pay := Float(balance) / y;
-      payment := integer(pay);
+      --block of code that calculates the monthly payment, split into multiple parts due to an indexed component constraint;
+      part1 := ((1.0 + newRate)**months); 
+      part2 := (float(balance) * part1);
+      part3 := (newRate * part2);
+      part4 := (part1 - 1.0);
+      part5 := (part3 / part4);
+      payment := integer(Float'Ceiling(part5)); --calculated monthly payment
       
       for I in 1..months loop
-         put (file, "| "); put (file, I, 5); put (file, " | "); put (file, balance, 7); put (file, " | "); 
-         put ("| "); put (I, 5); put (" | "); put (balance, 7); put (" | ");
+         put (fileOut, "| "); put (fileOut, I, 5); put (fileOut, " | "); put (fileOut, balance, 7); put (fileOut, " | "); 
 
-         tl := inter * Float(balance); --calculating the Towards Loan payment
-         towardsLoan := Integer(tl);
+         towardsLoanRaw := newRate * Float(balance); --calculating the Towards Loan payment
+         towardsLoan := Integer(towardsLoanRaw);
 
          interestPaid := payment - towardsLoan; --calculating the interest payment
          interest := interest + interestPaid;
@@ -52,16 +64,30 @@ package body CalculateLoanPayments is
          end if;
 
 
-         put (file, payment, 7); put (file, " | "); put (file, interestPaid, 8); put (file, " | ");
-         put(file, towardsLoan, 8); put (file, " | "); put(file, newBalance, 11); put (file, " |"); put (file, ASCII.LF);
-         put (payment, 7); put (" | "); put (interestPaid, 8); put (" | ");
-         put(towardsLoan, 8); put (" | "); put(newBalance, 11); put (" |");
-         New_Line;
-
+         put (fileOut, payment, 7); put (fileOut, " | "); put (fileOut, interestPaid, 8); put (fileOut, " | ");
+         put(fileOut, towardsLoan, 8); put (fileOut, " | "); put(fileOut, newBalance, 11); put (fileOut, " |"); put (fileOut, ASCII.LF);
 
       end loop;
       
-      close (File => file);
+      Close (File => fileOut); --end of WRITE
+      
+      Put_Line("Enter the Name of the File for Truth in Lending Report for Printing: "); New_Line;
+      
+      declare
+         
+         name2: String := Get_Line;
+         
+      begin
+         
+         Open (File => fileIn, Mode => In_File, Name => name2 & ".txt"); --READ
+         
+      end;
+      
+      while not End_Of_File (fileIn) loop
+      Put_Line (Get_Line (fileIn));
+      end loop;
+      
+      Close (File => fileIn); --end of READ
       
    end loanPayment;
 
