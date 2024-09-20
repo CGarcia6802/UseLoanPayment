@@ -1,8 +1,32 @@
 package body CalculateLoanPayments is
    
    months, balance, newBalance, payment, yearlyPayments, towardsLoan, interestPaid: Integer;
-   newRate, actualInterest, part1, part2, part3, part4, part5, towardsLoanRaw: float;
+   newRate, monthPayment, actualInterest, part1, part2, part3, part4, part5, towardsLoanRaw: float;
    fileOut, fileIn: File_Type;
+   
+   function monthlyPayment (years, principal, yearlyPayments: in integer; rate: in float) return float is
+      
+   begin
+      FIO.Default_Aft := 2; --makes it so that all float values have two digits after the decimal
+      
+      actualInterest := rate / 100.00;
+      newRate := actualInterest / Float(yearlyPayments); --calculating the interest
+      months := years * 12; --calculating months/payments
+      balance := principal; --due to the in constraint and needing to re-enter the new balance into balance for next month,
+                            --we pass off principal into balance
+   
+      --block of code that calculates the monthly payment, split into multiple parts due to an indexed component constraint;
+      part1 := ((1.00 + newRate)**months); --calculates monthly payment
+      part2 := (float(balance) * part1);
+      part3 := (newRate * part2);
+      part4 := (part1 - 1.00);
+      part5 := (part3 / part4);
+      monthPayment := Float'Ceiling(part5);
+      
+      return (monthPayment);
+      
+   end monthlyPayment;
+
 
    procedure loanPayment (years, principal, yearlyPayments: in integer; rate: in float; interest: in out integer) is 
    begin
@@ -33,23 +57,18 @@ package body CalculateLoanPayments is
       months := years * 12; --calculating months/payments
       balance := principal; --due to the in constraint and needing to re-enter the new balance into balance for next month,
                             --we pass off principal into balance
-   
-      --block of code that calculates the monthly payment, split into multiple parts due to an indexed component constraint;
-      part1 := ((1.0 + newRate)**months); 
-      part2 := (float(balance) * part1);
-      part3 := (newRate * part2);
-      part4 := (part1 - 1.0);
-      part5 := (part3 / part4);
-      payment := integer(Float'Ceiling(part5)); --calculated monthly payment
+
+      monthPayment := monthlyPayment (years, principal, yearlyPayments, rate);
+      payment := integer(monthPayment);
       
       for I in 1..months loop
          put (fileOut, "| "); put (fileOut, I, 5); put (fileOut, " | "); put (fileOut, balance, 7); put (fileOut, " | "); 
 
          towardsLoanRaw := newRate * Float(balance); --calculating the Towards Loan payment
-         towardsLoan := Integer(towardsLoanRaw);
-
+         towardsLoanRaw := Float'Rounding(towardsLoanRaw); --Rounds the float to the nearest integer
+         towardsLoan := Integer(towardsLoanRaw);--actual towardsloan value
          interestPaid := payment - towardsLoan; --calculating the interest payment
-         interest := interest + interestPaid;
+         interest := interest + interestPaid; --calculates the total interest paid
          newBalance := balance - interestPaid; --to be shown in report
          balance := newBalance; --new Balance put into Balance for next loop
 
@@ -59,7 +78,7 @@ package body CalculateLoanPayments is
 
 
 
-         if (newBalance <= 0) then
+         if (newBalance <= 0) then --if new balance is 0 or less than that, new balance and payment is 0 and is the end of the loan payment
             newBalance := 0; payment := 0;
          end if;
 
@@ -84,7 +103,7 @@ package body CalculateLoanPayments is
       end;
       
       while not End_Of_File (fileIn) loop
-      Put_Line (Get_Line (fileIn));
+         Put_Line (Get_Line (fileIn));
       end loop;
       
       Close (File => fileIn); --end of READ

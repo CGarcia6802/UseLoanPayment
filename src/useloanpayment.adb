@@ -19,6 +19,6 @@ begin
    put ("Enter The Interest Rate For The Loan : %"); get (rate); New_Line;
 
    loanPayment(years, balance, yearlyPayments, rate, interestTotal); --calculates loan payment table
-   New_Line; put("Total Interest: "); put(interestTotal); --produces the total interest
+   New_Line; put("Total Interest: $"); put(interestTotal, 1); --produces the total interest
 
 end Useloanpayment;

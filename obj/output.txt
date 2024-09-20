@@ -2,9 +2,9 @@ Enter How Many Years The Loan Will Take To Pay Off :
 Enter Total Balance For Loan : $
 Enter The Amount of Annual Payments : 
 Enter The Interest Rate For The Loan : %
-Enter Name of the Copy of File for Truth in Lending Report: 
+Enter a Name for the Copy of File for Truth in Lending Report: 
 
-Enter Name of the Copy of File for Truth in Lending Report for Printing: 
+Enter the Name of the File for Truth in Lending Report for Printing: 
 
 | Month | Balance | Payment | Interest | Loan Pay | New Balance | 
 -----------------------------------------------------------------
@@ -69,4 +69,4 @@ Enter Name of the Copy of File for Truth in Lending Report for Printing:
 |    59 |     746 |     387 |      383 |        4 |         363 |
 |    60 |     363 |       0 |      385 |        2 |           0 |
 
-Total Interest:       20022
+Total Interest: $20022
