@@ -1,0 +1,1 @@
+UseLoanPayment is a loan payment calculator made in ada for SHSU's COSC 3319 class. It takes however many years the loan is, the balance of the loan, how many payments in a year, and the rate its going for and puts the calculations into a neat table.
